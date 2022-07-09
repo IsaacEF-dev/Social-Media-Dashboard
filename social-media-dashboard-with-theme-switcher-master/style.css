@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root{
+    --gren:hsl(163, 72%, 41%);
+    --red: hsl(356, 69%, 56%);
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --youtube: hsl(348, 97%, 39%);
+    --toggle-dark:linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+    --togle-ligth:hsl(230, 22%, 74%);
+}
+
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 62.5%;
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(0, 0%, 100%);
+    transition: all .5s;
+}
+
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.content-principal{
+    background-color: hsl(225, 100%, 98%);
+}
+
+.content-panel{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    padding: 2rem 0 11rem 0;
+}
+
+.content-panel .title{
+    color: hsl(230, 17%, 14%);
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.content-panel .description{
+    color: hsl(228, 12%, 44%);
+    font-size: .9rem;
+    margin-top: .2rem;
+    font-weight: 700;
+}
+
+.content-mode{
+    display: flex;
+    align-items: center;
+}
+
+.content-mode p{
+    color: hsl(228, 12%, 44%);
+    font-size: .85rem;
+    margin-right: .6rem;
+    font-weight: 700;
+}
+
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(hsl(210, 78%, 56%),hsl(146, 68%, 55%))  ;
+  
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 2.5px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: hsl(232, 19%, 15%);
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+    background: hsl(230, 22%, 74%);
+}
+
+input:checked + label:after {
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+  background: hsl(0, 0%, 100%);
+  
+}
+
+label:active:after {
+  width: 10px;
+}
+
+.panel{
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.card-social{
+    flex-basis: calc(25% - 1.5rem);
+    background-color: hsl(227, 47%, 96%);
+    padding: 1.5rem;
+    border-radius: .3rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-social.push{
+    background-color:  hsl(227, 16%, 89%);
+}
+
+.card-social:nth-child(1){
+    border-top: 5px solid var(--facebook);
+}
+
+.card-social:nth-child(2){
+    border-top: 5px solid var(--twitter);
+}
+
+.card-social:nth-child(3){
+    border-top: 5px solid transparent;
+    border-image: radial-gradient( hsl(37, 97%, 70%) 0%, hsl(329, 70%, 58%) 100%)1;
+}
+
+.card-social:nth-child(4){
+    border-top: 5px solid var(--youtube);
+}
+
+@media(max-width:475px){
+    .content-panel{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content-panel .title{
+        font-size: 1.5rem;
+    }
+    .content-title{
+        border-bottom: 1px solid hsl(228, 28%, 20%);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    .content-mode{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .panel{
+        flex-direction: column;
+    }
+
+    .card-social{
+        margin-bottom: 1rem;
+    }
+}
+
+.content-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 0 1.5rem 0;
+}
+
+.content-profile img{
+    margin-right: .6rem;
+    width: 1.5rem;
+}
+
+.content-profile .perfil{
+    color: hsl(228, 12%, 44%);
+    font-size: .8rem;
+}
+
+.followers{
+    color: hsl(230, 17%, 14%);
+    font-weight: 700;
+    font-size: 3.3rem;
+    margin-bottom: .1rem;
+}
+
+.title-follow{
+    color: hsl(228, 12%, 44%);
+    letter-spacing: .35rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .8rem;
+    margin-bottom: 1.5rem;
+}
+
+.today{
+    color: var(--gren);
+    font-size: .75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.error{
+    color: var(--red);
+}
+
+.today img{
+    margin-right: .4rem;
+}
+
+.title-overview{
+    margin-top: 8rem;
+    margin-bottom: 1.3rem;
+    color: hsl(228, 12%, 44%);
+    font-size: 1.5rem;
+}
+
+.content-overview{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content-overview .overview{
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.head-overview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.funcion{
+    color: hsl(228, 12%, 44%);
+    font-size: .85rem;
+    font-weight: 700;
+}
+
+.information{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+}
+
+.information .date{
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.porcent{
+    color: var(--gren);
+    font-weight: 700;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+}
+.porcent img{
+    margin-right: .3rem;
+}
+.error{
+    color: var(--red);
+}
+
+@media(max-width:475px){
+
+    .title-overview{
+        margin-top: 52rem;
+    }
+    .content-overview{
+        flex-direction: column;
+    }
+}
+
+
+/*=========Dark Mode==========*/
+body.active{
+    background-color: hsl(230, 17%, 14%);
+}
+body.active .content-principal{
+    background-color: hsl(232, 19%, 15%);
+}
+
+body.active .title{
+    color: hsl(225, 100%, 98%);
+}
+
+body.active .followers{
+    color: hsl(225, 100%, 98%);
+}
+
+body.active .title-overview{
+    color: hsl(225, 100%, 98%);
+}
+
+body.active .date{
+    color: hsl(225, 100%, 98%);
+}
+
+body.active .card-social{
+    background-color: hsl(228, 28%, 20%);
+}
+
+body.active .card-social.push{
+    background-color:  rgb(50, 57, 87);
+}
